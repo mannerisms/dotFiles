@@ -27,5 +27,8 @@ fi
 # create symbolic link to current location
 ln -s $NEW_FOLDER $OLD_FOLDER
 
+# create symbolic link to current location
+ln -s $NEW_FILE $OLD_FILE
+
 echo "Vim sucesfully installed"
 exit 0

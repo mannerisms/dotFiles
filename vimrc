@@ -14,6 +14,7 @@ set number
 " Visual Style
 syntax enable
 set background=dark
+colorscheme solarized
 
 " Tab Behaviour
 set tabstop=4
