@@ -8,6 +8,9 @@ autocmd! bufwritepost .vimrc source %
 " filetypes
 filetype indent on
 
+" Enable Line numbers
+set number
+
 " Visual Style
 syntax enable
 set background=dark
