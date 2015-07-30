@@ -10,14 +10,22 @@
 #===============================================================================
 
 NEW_FILE=$(pwd)"/vimrc"
+NEW_FOLDER=$(pwd)"/vim"
 OLD_FILE="$HOME/.vimrc"
+OLD_FOLDER="$HOME/.vim"
 
 # delete existing vimrc
 if [[ -e $OLD_FILE ]]; then
     rm $OLD_FILE
 fi
 
-# create symbolic link to current location
-ln -s $NEW_FILE $OLD_FILE
+# delete existing vim folder
+if [[ -e $OLD_FOLDER ]]; then
+    rm -r $OLD_FOLDER
+fi
 
+# create symbolic link to current location
+ln -s $NEW_FOLDER $OLD_FOLDER
+
+echo "Vim sucesfully installed"
 exit 0
