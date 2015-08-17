@@ -16,6 +16,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" Set proper color allowance
+set term=screen-256color
+
 " Tab Behaviour
 set tabstop=4
 set softtabstop=4
@@ -55,7 +58,7 @@ set hlsearch
 set incsearch
 
 " Disable search highlight
-map <silent> <leader><space> :silent :nohlsearch<cr>
+nnoremap <CR> :noh<CR><CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Formatting:
