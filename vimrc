@@ -38,8 +38,24 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" make backspace behave in a sane manner
+set backspace=indent,eol,start
+
 " Easy run a python script
 autocmd FileType python nnoremap <leader>r :exec '!clear;python' shellescape(@%, 1)<CR>
+
+if has('mouse')
+        set mouse=a
+        set ttymouse=xterm2
+endif
+
+set wildmenu " enhanced command line completion
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Navigation:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set splitbelow
+set splitright
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search:
