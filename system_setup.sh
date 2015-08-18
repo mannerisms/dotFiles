@@ -24,7 +24,6 @@ for FILE in ${FILES[@]}; do
     ln -s $NEWFILE $OLDFILE
 done
 
-source ~/.basrc
 tmux source-file ~/.tmux.conf
 
 echo "Changes sucessfully applied"
