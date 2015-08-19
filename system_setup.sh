@@ -9,7 +9,7 @@
 # 0) Succesful completetion
 #===============================================================================
 
-FILES=("bash_profile" "vim" "bashrc" "slate" "tmux.conf" "vimrc")
+FILES=("bash_profile" "zshrc" "vim" "bashrc" "slate" "tmux.conf" "vimrc")
 
 # Remove all existing dotfiles
 for FILE in ${FILES[@]}; do
@@ -23,8 +23,6 @@ for FILE in ${FILES[@]}; do
     echo "replacing $NEWFILE"
     ln -s $NEWFILE $OLDFILE
 done
-
-tmux source-file ~/.tmux.conf
 
 echo "Changes sucessfully applied"
 exit 0
