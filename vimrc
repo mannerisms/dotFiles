@@ -22,6 +22,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
 Plugin 'bling/vim-airline'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
@@ -211,7 +212,7 @@ let NERDTreeIgnore = ['\.js.map$']
 " Toggle NERDTree
 nmap <silent> <leader>n :NERDTreeToggle<cr>
 " expand to the path of the file in the current buffer
-nmap <silent> <leader>f :NERDTreeFind<cr>
+nmap <silent> <leader>fs :NERDTreeFind<cr>
 
 " map fuzzyfinder (CtrlP) plugin
 " nmap <silent> <leader>t :CtrlP<cr>
