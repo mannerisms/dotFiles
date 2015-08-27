@@ -1,0 +1,5 @@
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+highlight Hint font-size:110%;color:white;background-color:red;padding:2px;
+
+noremap j 5j
+noremap k 5k
