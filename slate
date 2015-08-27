@@ -61,16 +61,28 @@ bind pad8:ctrl;alt;cmd ${tophalf}
 bind pad9:ctrl;alt;cmd ${topright}
 
 # Resize Bindings
-bind right:ctrl;alt;cmd       resize +10% +0
-bind left:ctrl;alt;cmd        resize -10% +0
-bind up:ctrl;alt;cmd          resize +0   -10%
-bind down:ctrl;alt;cmd        resize +0   +10%
+bind right:ctrl;alt;cmd       resize +5% +0
+bind left:ctrl;alt;cmd        resize -5% +0
+bind up:ctrl;alt;cmd          resize +0   -5%
+bind down:ctrl;alt;cmd        resize +0   +5%
+
+# Resize Bindings small
+bind right:ctrl;alt;cmd;shift       resize +1% +0
+bind left:ctrl;alt;cmd;shift        resize -1% +0
+bind up:ctrl;alt;cmd;shift          resize +0   -1%
+bind down:ctrl;alt;cmd;shift        resize +0   +1%
 
 # Nudge Bindings
-bind right:ctrl;cmd nudge +10% +0
-bind left:ctrl;cmd  nudge -10% +0
-bind up:ctrl;cmd    nudge +0   -10%
-bind down:ctrl;cmd  nudge +0   +10%
+bind right:ctrl;cmd nudge +5% +0
+bind left:ctrl;cmd  nudge -5% +0
+bind up:ctrl;cmd    nudge +0   -5%
+bind down:ctrl;cmd  nudge +0   +5%
+
+# Nudge Bindings small
+bind right:ctrl;cmd;shift   nudge +1% +0
+bind left:ctrl;cmd;shift    nudge -1% +0
+bind up:ctrl;cmd;shift      nudge +0   -1%
+bind down:ctrl;cmd;shift    nudge +0   +1%
 
 # Resize Nudge Combination
 bind [:ctrl;alt;cmd sequence nudge -10% +0 | resize +10% +0
