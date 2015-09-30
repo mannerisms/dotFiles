@@ -5,85 +5,13 @@
 # Configs
 # ======================================
 
-config defaultToCurrentScreen true
-# Shows app icons and background apps, spreads icons in the same place.
-config windowHintsShowIcons true
-config windowHintsDuration 5
-config windowHintsIgnoreHiddenWindows false
-config windowHintsSpread true
-config defaultToCurrentScreen true
-
-config nudgePercentOf screenSize
-config resizePercentOf screenSize
 
 # ======================================
 # Aliases
 # ======================================
 
-# Abstract positions
-alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
-alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
-alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
-alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
-alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
-alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
-alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
-alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
-alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
-alias left3third move screenOriginX;screenOriginY 2*screenSizeX/3;screenSizeY
-alias right1third move screenOriginX+(screenSizeX/3)*2;screenOriginY screenSizeX/3;screenSizeY
-alias right3third move screenOriginX+screenSizeX/3;screenOriginY screenSizeX;screenSizeY
-alias left1third move screenOriginX;screenOriginY screenSizeX/3;screenSizeY
-
 # Misc Aliases
-alias showHintsLeftHand hint QWEASDZXC
+alias showHints hint hjklasdfgyuiopqwertnmzxcvb
 
-# Keypad Bindings
-bind ;:ctrl;alt;cmd  ${righthalf}
-bind k:ctrl;alt;cmd  ${lefthalf}
-bind o:ctrl;alt;cmd  ${tophalf}
-bind .:ctrl;alt;cmd  ${bottomhalf}
-bind i:ctrl;alt;cmd  ${topleft}
-bind p:ctrl;alt;cmd  ${topright}
-bind ,:ctrl;alt;cmd  ${bottomleft}
-bind /:ctrl;alt;cmd  ${bottomright}
-bind l:ctrl;alt;cmd  ${full}
-
-# Numpad Bindings
-bind pad1:ctrl;alt;cmd ${bottomleft}
-bind pad2:ctrl;alt;cmd ${bottomhalf}
-bind pad3:ctrl;alt;cmd ${bottomright}
-bind pad4:ctrl;alt;cmd ${lefthalf}
-bind pad5:ctrl;alt;cmd ${full}
-bind pad6:ctrl;alt;cmd ${righthalf}
-bind pad7:ctrl;alt;cmd ${topleft}
-bind pad8:ctrl;alt;cmd ${tophalf}
-bind pad9:ctrl;alt;cmd ${topright}
-
-# Resize Bindings
-bind right:ctrl;cmd       resize +5% +0
-bind left:ctrl;cmd        resize -5% +0
-bind up:ctrl;cmd          resize +0   -5%
-bind down:ctrl;cmd        resize +0   +5%
-
-# Resize Bindings small
-bind right:ctrl;cmd;shift       resize +1% +0
-bind left:ctrl;cmd;shift        resize -1% +0
-bind up:ctrl;cmd;shift          resize +0   -1%
-bind down:ctrl;cmd;shift        resize +0   +1%
-
-# Nudge Bindings
-bind right:ctrl;cmd;alt     nudge +5% +0
-bind left:ctrl;cmd;alt      nudge -5% +0
-bind up:ctrl;cmd;alt        nudge +0   -5%
-bind down:ctrl;cmd;alt      nudge +0   +5%
-
-# Nudge Bindings small
-bind right:ctrl;cmd;shift;alt   nudge +1% +0
-bind left:ctrl;cmd;shift;alt    nudge -1% +0
-bind up:ctrl;cmd;shift;alt      nudge +0   -1%
-bind down:ctrl;cmd;shift;alt    nudge +0   +1%
-
-# Resize Nudge Combination
-bind [:ctrl;alt;cmd sequence nudge -10% +0 | resize +10% +0
-bind ]:ctrl;alt;cmd sequence resize -10% +0 | nudge +10% +0
+# Relaunch
+bind r:ctrl;alt;cmd relaunch

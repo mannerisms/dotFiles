@@ -9,7 +9,7 @@
 # 0) Succesful completetion
 #===============================================================================
 
-FILES=("vimperatorrc" "bash_profile" "zshrc" "vim" "bashrc" "slate" "tmux.conf" "vimrc")
+FILES=("vimperatorrc" "bash_profile" "zshrc" "vim" "bashrc" "slate" "slate.js" "tmux.conf" "vimrc")
 
 # Remove all existing dotfiles
 for FILE in ${FILES[@]}; do
