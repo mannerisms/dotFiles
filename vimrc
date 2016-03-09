@@ -21,7 +21,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 
@@ -56,6 +57,9 @@ set number
 syntax enable
 set background=dark
 colorscheme solarized
+
+" Set encoding
+set encoding=utf-8
 
 " Set proper color allowance
 set term=screen-256color
@@ -203,6 +207,8 @@ endfunction
 " Plugin Settings:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" fix navigation problem with terminal
+let g:NERDTreeDirArrows=0
 " close NERDTree after a file is opened
 let g:NERDTreeQuitOnOpen=1
 " show hidden files in NERDTree
