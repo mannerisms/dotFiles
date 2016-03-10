@@ -17,6 +17,8 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
@@ -148,9 +150,6 @@ nnoremap <silent> k gk
 nnoremap <silent> ^ g^
 nnoremap <silent> $ g$
 
-" search for word under the cursor
-nnoremap <leader>/ "fyiw :/<c-r>f<cr>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -227,7 +226,7 @@ let g:NERDTreeQuitOnOpen=1
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
 " remove some files by extension
-let NERDTreeIgnore = ['\.js.map$']
+let NERDTreeIgnore = ['\.js.map$', '\.pyc$']
 " Toggle NERDTree
 nmap <silent> <leader>n :NERDTreeToggle<cr>
 " expand to the path of the file in the current buffer
@@ -237,11 +236,15 @@ nmap <silent> <leader>fs :NERDTreeFind<cr>
 let g:SimpylFold_docstring_preview=1
 
 " map fuzzyfinder (CtrlP) plugin
-" nmap <silent> <leader>t :CtrlP<cr>
-nmap <silent> <leader>r :CtrlPBuffer<cr>
-let g:ctrlp_map='<leader>t'
+" let g:ctrlp_map='<leader>t'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_dotfiles=1
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
 " Fugitive Shortcuts
 nmap <silent> <leader>gs :Gstatus<cr>
@@ -269,6 +272,11 @@ endif
 " YouCompletMe options
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:UltiSnipsExpandTrigger       = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-h>"
+let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Language Specific:
