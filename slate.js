@@ -14,20 +14,6 @@ var monLaptop = "1920x1200";
 
 // Operations
 
-// make the current window HALF the width of the screen
-// and position it on the LEFT
-var pushLeftHalf = slate.operation("push", {
-  "direction" : "left",
-  "style" : "bar-resize:screenSizeX/2"
-});
-
-// make the current window HALF the width of the screen
-// and position it on the RIGHT
-var pushRightHalf = slate.operation("push", {
-  "direction" : "right",
-  "style" : "bar-resize:screenSizeX/2"
-});
-
 var lapFull = S.op("move", {
     "screen" : monLaptop,
     "x" : "screenOriginX",
@@ -175,9 +161,6 @@ S.bnda({
     "pad-:ctrl;cmd;alt" : lapChat,
     "pad+:ctrl;cmd;alt" : lapMain,
     "]:ctrl;cmd;alt" : lapMain,
-
-    "-:ctrl;cmd;alt" : pushLeftHalf,
-    "=:ctrl;cmd;alt" : pushRightHalf,
 
     // Thirds keyPad
 
