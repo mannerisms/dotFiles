@@ -2,8 +2,6 @@ export PATH=/usr/local/bin:$PATH
 
 # Setting PATH for Python 2.7
 # The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
 # set where virutal environments will live
 export WORKON_HOME=$HOME/.virtualenvs
 # ensure all new environments are isolated from the site-packages directory
@@ -19,8 +17,9 @@ else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
 # Setting for the new UTF-8 terminal support in Lion
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LC_CTYPE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 
 # Setting up tmux to run in full colour
 alias tmux="tmux -2"

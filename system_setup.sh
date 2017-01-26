@@ -16,7 +16,7 @@ for FILE in ${FILES[@]}; do
     OLDFILE="$HOME/.$FILE"
     if [[ -e $OLDFILE ]]; then
         echo "removing $OLDFILE"
-        rm -r $OLDFILE
+        rm -rf $OLDFILE
     fi
     # Create symlink from file to new file
     NEWFILE=$(pwd)"/$FILE"
