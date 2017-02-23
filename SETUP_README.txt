@@ -1,0 +1,33 @@
+# SETUP ON LINUX #
+$ sudo apt-get install python-pip python-dev build-essential 
+$ sudo pip install --upgrade pip 
+$ sudo pip install --upgrade virtualenv 
+
+# INSTALL OH-MY-ZSH
+$ sudo apt-get install zsh
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# INSTALL VIM
+$ sudo apt-get install vim
+
+# RUN SYSTEM SETUP
+$ ./system_setup.sh
+
+################################################################################
+
+# SETUP ON OSX #
+
+# INSTALL HOMEBREW #
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# INSTALL PIP #
+$ sudo easy_install pip
+$ pip install virtualenv
+$ pip install virtualenvwrapper
+
+# INSTALL OH-MY-ZSH #
+$ sudo apt-get install zsh
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# RUN SYSTEM SETUP
+$ ./system_setup.sh
