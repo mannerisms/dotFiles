@@ -11,7 +11,7 @@ $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/m
 $ sudo apt-get install vim
 
 # RUN SYSTEM SETUP
-$ ./system_setup.sh
+$ ./system_setup.sh [FILENAME]
 
 ################################################################################
 
@@ -30,4 +30,4 @@ $ sudo apt-get install zsh
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # RUN SYSTEM SETUP
-$ ./system_setup.sh
+$ ./system_setup.sh [FILENAME]

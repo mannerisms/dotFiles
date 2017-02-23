@@ -11,4 +11,4 @@ ZSH_THEME="blinks"
 # plugins=(git colored-man colorize virtualenv pip python brew osx zsh-syntax-highlighting)
 
 # User configuration
-source $HOME/dotfiles/env.sh
+source $HOME/.env.sh

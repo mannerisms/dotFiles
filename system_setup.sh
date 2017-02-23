@@ -10,10 +10,11 @@
 #===============================================================================
 
 # Check if argument exists
-if [[ "$1" -gt "-1" ]]; then
+if [[ "$#" -ne 0 ]]; then
     FILES="$@"
+    echo ${FILES[@]}
 else
-    FILES=("gitignore" "bash_profile" "zshrc" "vim" "bashrc" "tmux.conf" "vimrc")
+    FILES=("bash_profile" "bashrc" "env.sh" "gitconfig" "gitignore" "slate" "slate.js" "system_setup.sh" "tmux.conf" "vim" "vimrc" "zshrc")
 fi
 
 # Remove all existing dotfiles

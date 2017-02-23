@@ -35,7 +35,7 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 # ALIASES
 # Use sublimetext for editing config files
 alias zshconfig="subl ~/.zshrc"
-alias envconfig="subl ~/dotfiles/env.sh"
+alias envconfig="subl ~/.env.sh"
 alias g="git "
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
