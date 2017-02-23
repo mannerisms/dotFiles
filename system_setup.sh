@@ -9,7 +9,12 @@
 # 0) Succesful completetion
 #===============================================================================
 
-FILES=("bash_profile" "zshrc" "vim" "bashrc" "tmux.conf" "vimrc")
+# Check if argument exists
+if [[ "$1" -gt "-1" ]]; then
+    FILES="$@"
+else
+    FILES=("gitignore" "bash_profile" "zshrc" "vim" "bashrc" "tmux.conf" "vimrc")
+fi
 
 # Remove all existing dotfiles
 for FILE in ${FILES[@]}; do

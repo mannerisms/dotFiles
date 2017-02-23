@@ -6,6 +6,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 export EDITOR='subl -w'# export PYTHONPATH=$PYTHONPATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Set locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Virtual Environment
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Development
@@ -20,6 +24,7 @@ else
         echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
 
+
 # FileSearch
 function f() { find . -iname "*$1*" ${@:2} }
 function r() { grep "$1" ${@:2} -R . }
@@ -27,17 +32,16 @@ function r() { grep "$1" ${@:2} -R . }
 #mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
-# Aliases
-alias cppcompile='c++ -std=c++11 -stdlib=libc++'
-
+# ALIASES
 # Use sublimetext for editing config files
 alias zshconfig="subl ~/.zshrc"
-alias envconfig="subl ~/Projects/config/env.sh"
-alias "^g "="git "
+alias envconfig="subl ~/dotfiles/env.sh"
+alias g="git "
 
-# Terminix configuration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Terminix configuration
 if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
+
