@@ -9,13 +9,13 @@
 # 0) Succesful completetion
 #===============================================================================
 
-# Check if argument exists
-if [[ "$#" -ne 0 ]]; then
-    FILES="$@"
-    echo ${FILES[@]}
-else
-    FILES=("bash_profile" "bashrc" "env.sh" "gitconfig" "gitignore" "slate" "slate.js" "system_setup.sh" "tmux.conf" "vim" "vimrc" "zshrc")
+# Check which system is running and copy appropriate files
+if [ "$(uname)" == "Darwin" ]; then
+    FILES=("bash_profile" "bashrc" "env.sh" "slate" "slate.js" "tmux.conf" "vimrc" "zshrc")
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    FILES=("bash_profile" "bashrc" "env.sh" "tmux.conf" "vimrc" "zshrc")
 fi
+
 
 # Remove all existing dotfiles
 for FILE in ${FILES[@]}; do

@@ -10,18 +10,15 @@ export EDITOR='subl -w'# export PYTHONPATH=$PYTHONPATH
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Virtual Environment
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Development
-export PIP_RESPECT_VIRTUALENV=true
-# ensure all new environments are isolated from the site-packages directory
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-
 # Check for presence of virtualenvwrapper and source if available
 if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
         source /usr/local/bin/virtualenvwrapper.sh
-else
-        echo "WARNING: Can't find virtualenvwrapper.sh"
+        # Virtual Environment
+        export WORKON_HOME=$HOME/.virtualenvs
+        export PROJECT_HOME=$HOME/Development
+        export PIP_RESPECT_VIRTUALENV=true
+        # ensure all new environments are isolated from the site-packages directory
+        export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 fi
 
 
@@ -39,9 +36,3 @@ alias envconfig="subl ~/.env.sh"
 alias g="git "
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Terminix configuration
-if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
-
