@@ -5,45 +5,33 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'tpope/vim-commentary'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-fugitive'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'scrooloose/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'jnurmine/Zenburn'
+Plug 'flazz/vim-colorschemes'
+Plug 'altercation/vim-colors-solarized'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " General:
@@ -56,12 +44,13 @@ autocmd! bufwritepost .vimrc source %
 filetype indent on
 
 " Enable Line numbers
-set number
+set relativenumber 
 
 " Visual Style
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme molokai
+hi Normal guibg=NONE ctermbg=NONE
 
 " Set encoding
 set encoding=utf-8
@@ -109,15 +98,15 @@ set clipboard=unnamed
 set ttyfast
 
 " set a map leader for more key combos
-let mapleader = ','
-let g:mapleader = ','
+let mapleader = " "
+let g:mapleader = " "
 
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
 
 " Enable folding with the spacebar
-nnoremap <space> za
+nnoremap <leader>i za
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings:
@@ -215,6 +204,8 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set leader / to comment line
+nmap <silent> <leader>/ :Commentary<cr>
 
 " fix navigation problem with terminal
 let g:NERDTreeDirArrows=0
