@@ -9,5 +9,3 @@ export LANG="en_US.UTF-8"
 alias tmux="tmux -2"
 
 /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
-/usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
-
