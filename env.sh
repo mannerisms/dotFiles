@@ -11,7 +11,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # In linux use xcape to set CAPS to CTRL if held
-if [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
+if [[ "$(uname)" != "Darwin" ]]; then
     /usr/bin/xcape -e '#66=Escape' -t 100
 fi
 
