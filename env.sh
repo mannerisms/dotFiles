@@ -1,6 +1,4 @@
 #!/bin/zsh
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # PATH
@@ -12,9 +10,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-
-# Set vim as the default editor
-VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
+# In linux use xcape to set CAPS to CTRL if held
+if [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
+    /usr/bin/xcape -e '#66=Escape' -t 100
+fi
 
 # Check for presence of virtualenvwrapper and source if available
 if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
