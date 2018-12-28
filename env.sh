@@ -12,21 +12,19 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Set CAPS as CTRL when held
-/usr/bin/setxkbmap -option 'caps:ctrl_modifier'
 
 # Set vim as the default editor
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
 # Check for presence of virtualenvwrapper and source if available
 if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-        source /usr/local/bin/virtualenvwrapper.sh
-        # Virtual Environment
-        export WORKON_HOME=$HOME/.virtualenvs
-        export PROJECT_HOME=$HOME/Development
-        export PIP_RESPECT_VIRTUALENV=true
-        # ensure all new environments are isolated from the site-packages directory
-        export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+    source /usr/local/bin/virtualenvwrapper.sh
+    # Virtual Environment
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/Development
+    export PIP_RESPECT_VIRTUALENV=true
+    # ensure all new environments are isolated from the site-packages directory
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 fi
 
 # FileSearch
