@@ -13,6 +13,10 @@ $ sudo apt-get install vim
 # RUN SYSTEM SETUP
 $ ./system_setup.sh
 
+# NOTABLE PROGRAMS TO CONSIDER INSTALLING
+sudo apt-get install ranger # terminal file browser
+sudo apt-get install zathura # terminal document viewer
+
 ################################################################################
 
 # SETUP ON OSX #

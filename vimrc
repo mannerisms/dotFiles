@@ -51,6 +51,7 @@ syntax enable
 set background=dark
 colorscheme molokai
 hi Normal guibg=NONE ctermbg=NONE
+highlight Visual cterm=bold ctermbg=Grey ctermfg=NONE
 
 " Set encoding
 set encoding=utf-8
@@ -113,7 +114,7 @@ nnoremap <leader>i za
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " remove extra whitespace
-nmap <leader><space> :%s/\s\+$<cr>
+nmap <leader>w :%s/\s\+$<cr>
 
 " disable Ex mode
 noremap Q <NOP>
@@ -250,17 +251,12 @@ let g:airline_theme='base16'
 if (has("gui_running"))
     set guioptions=egmrt
     set background=light
-    colorscheme solarized
+    colorscheme molokai
     let g:airline_left_sep=''
     let g:airline_right_sep=''
     let g:airline_powerline_fonts=0
-    let g:airline_theme='solarized'
+    let g:airline_theme='molokai'
 endif
-
-let g:UltiSnipsExpandTrigger       = "<c-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-h>"
-let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Language Specific:

@@ -7,5 +7,3 @@ export LANG="en_US.UTF-8"
 
 # Setting up tmux to run in full colour
 alias tmux="tmux -2"
-
-/usr/bin/setxkbmap -option 'caps:ctrl_modifier'

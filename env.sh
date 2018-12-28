@@ -3,7 +3,7 @@ source $ZSH/oh-my-zsh.sh
 
 # PATH
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin"
-export EDITOR='subl -w'# export PYTHONPATH=$PYTHONPATH
+# export PYTHONPATH=$PYTHONPATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Set locale
