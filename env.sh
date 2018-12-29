@@ -11,9 +11,12 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # In linux use xcape to set CAPS to CTRL if held
-if [[ "$(uname)" != "Darwin" ]]; then
-    /usr/bin/xcape -e '#66=Escape' -t 100
+if [[ -r /usr/bin/xcape ]]; then
+   sh /usr/bin/xcape -e '#67=Escape' -t 101
 fi
+
+# Set vim as the default editor
+VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
 # Check for presence of virtualenvwrapper and source if available
 if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then

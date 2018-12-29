@@ -17,6 +17,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -29,7 +30,7 @@ Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'jnurmine/Zenburn'
 Plug 'flazz/vim-colorschemes'
-Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -44,14 +45,15 @@ autocmd! bufwritepost .vimrc source %
 filetype indent on
 
 " Enable Line numbers
-set relativenumber 
+set relativenumber
 
 " Visual Style
 syntax enable
 set background=dark
-colorscheme molokai
-hi Normal guibg=NONE ctermbg=NONE
-highlight Visual cterm=bold ctermbg=Grey ctermfg=NONE
+colorscheme dracula
+" hi Normal guibg=NONE ctermbg=NONE
+" highlight Visual cterm=bold ctermbg=Grey ctermfg=NONE
+
 
 " Set encoding
 set encoding=utf-8
@@ -126,10 +128,10 @@ noremap Q <NOP>
 set splitbelow
 set splitright
 
-map <silent> <C-h> :call WinMove('h')<cr>
-map <silent> <C-j> :call WinMove('j')<cr>
-map <silent> <C-k> :call WinMove('k')<cr>
-map <silent> <C-l> :call WinMove('l')<cr>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " moving up and down work as you would expect
 nnoremap <silent> j gj
@@ -183,21 +185,6 @@ autocmd BufWritePre *.sh,*.py,*.js :call <SID>StripTrailingWhitespaces()
 " Functions:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Window movement shortcuts
-" move to the window in the direction shown, or create a new window
-function! WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec "wincmd ".a:key
-    endif
-endfunction
-
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
@@ -209,7 +196,7 @@ endfunction
 nmap <silent> <leader>/ :Commentary<cr>
 
 " fix navigation problem with terminal
-let g:NERDTreeDirArrows=0
+let g:NERDTreeDirArrows=1
 " close NERDTree after a file is opened
 let g:NERDTreeQuitOnOpen=1
 " show hidden files in NERDTree
@@ -220,6 +207,7 @@ let NERDTreeIgnore = ['\.js.map$', '\.pyc$']
 nmap <silent> <leader>n :NERDTreeToggle<cr>
 " expand to the path of the file in the current buffer
 nmap <silent> <leader>fs :NERDTreeFind<cr>
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " Keep docstring for folds
 let g:SimpylFold_docstring_preview=1
@@ -246,17 +234,7 @@ set laststatus=2 " Show airline all the time
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='base16'
-
-if (has("gui_running"))
-    set guioptions=egmrt
-    set background=light
-    colorscheme molokai
-    let g:airline_left_sep=''
-    let g:airline_right_sep=''
-    let g:airline_powerline_fonts=0
-    let g:airline_theme='molokai'
-endif
+let g:airline_theme='dracula'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Language Specific:

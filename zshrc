@@ -2,10 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME="theunraveler"
-
-# Set vim as the default editor
-VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
+ZSH_THEME="dracula"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
