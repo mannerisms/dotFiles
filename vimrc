@@ -30,6 +30,8 @@ Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'jnurmine/Zenburn'
 Plug 'flazz/vim-colorschemes'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
@@ -54,7 +56,6 @@ colorscheme dracula
 " hi Normal guibg=NONE ctermbg=NONE
 " highlight Visual cterm=bold ctermbg=Grey ctermfg=NONE
 
-
 " Set encoding
 set encoding=utf-8
 
@@ -68,30 +69,11 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
-" easier moving of code blocks
-" Try to go into visual mode (v), thenselect several lines of code here and
-" then press ``>`` several times.
-vnoremap < <gv  " better indentation
-vnoremap > >gv  " better indentation
-
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
 set nobackup
 set nowritebackup
 set noswapfile
-
-" make backspace behave in a sane manner
-set backspace=indent,eol,start
-
-" Easy run a python script
-autocmd FileType python nnoremap <leader>r :exec '!clear;python' shellescape(@%, 1)<CR>
-
-if has('mouse')
-        set mouse=a
-        set ttymouse=xterm2
-endif
-
-set nocompatible " not compatible with vi
 set autoread " detect when a file is changed
 set wildmenu " enhanced command line completion
 
@@ -100,23 +82,39 @@ set clipboard=unnamed
 " faster redrawing
 set ttyfast
 
-" set a map leader for more key combos
-let mapleader = " "
-let g:mapleader = " "
+" make backspace behave in a sane manner
+set backspace=indent,eol,start
 
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
 
+" Make splits behave as expected
+set splitbelow
+set splitright
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings:
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" set a map leader for more key combos
+let mapleader = " "
+let g:mapleader = " "
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
 " Enable folding with the spacebar
 nnoremap <leader>i za
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mappings:
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map Ctrl Enter to move to new line below
+inoremap <leader><Enter> <Esc>o
 
 " remove extra whitespace
-nmap <leader>w :%s/\s\+$<cr>
+noremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 " disable Ex mode
 noremap Q <NOP>
@@ -125,8 +123,20 @@ noremap Q <NOP>
 " Navigation:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set splitbelow
-set splitright
+if has('mouse')
+    set mouse=a
+    set ttymouse=xterm2
+endif
+
+" Move lines up and down using ALT+[JK]
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -185,15 +195,16 @@ autocmd BufWritePre *.sh,*.py,*.js :call <SID>StripTrailingWhitespaces()
 " Functions:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! TrimWhiteSpace()
-    %s/\s\+$//e
-endfunction
+" Easy run a python script
+autocmd FileType python nnoremap <leader>r :exec '!clear;python' shellescape(@%, 1)<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " set leader / to comment line
 nmap <silent> <leader>/ :Commentary<cr>
+vmap <silent> <leader>/ :Commentary<cr>
 
 " fix navigation problem with terminal
 let g:NERDTreeDirArrows=1
@@ -234,7 +245,16 @@ set laststatus=2 " Show airline all the time
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='dracula'
+"
+
+" Set ultisnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"
+if !exists("g:UltiSnipsJumpForwardTrigger")
+        let g:UltiSnipsJumpForwardTrigger = "<tab>"
+endif
+if !exists("g:UltiSnipsJumpBackwardTrigger")
+        let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Language Specific:
@@ -257,4 +277,3 @@ au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-
