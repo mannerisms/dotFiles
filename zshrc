@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME="dracula"
+ZSH_THEME="theunraveler"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
