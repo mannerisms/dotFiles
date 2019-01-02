@@ -11,9 +11,9 @@
 
 # Check which system is running and copy appropriate files
 if [ "$(uname)" == "Darwin" ]; then
-    FILES=("bash_profile" "bashrc" "env.sh" "slate" "slate.js" "tmux.conf" "vimrc" "zshrc")
+    FILES=("bash_profile" "bashrc" "env.sh" "slate" "slate.js" "tmux.conf" "vimrc" "zshrc" "config")
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    FILES=("bash_profile" "bashrc" "env.sh" "tmux.conf" "vimrc" "zshrc")
+    FILES=("bash_profile" "bashrc" "env.sh" "tmux.conf" "vimrc" "zshrc" "config")
 fi
 
 
