@@ -1,7 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-#!/bin/zsh
-source $ZSH/oh-my-zsh.sh
 
 # Set name of the theme to load.
 ZSH_THEME="theunraveler"
@@ -12,39 +10,20 @@ ZSH_THEME="theunraveler"
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git colored-man colorize virtualenv pip python brew osx zsh-syntax-highlighting)
 
-# Vars
-    HISTFILE=~/.zsh_history
-    SAVEHIST=1000 
-    setopt inc_append_history # To save every command before it is executed 
-    setopt share_history # setopt inc_append_history
+source $HOME/dotfiles/env/env.sh
 
-    git config --global push.default current
-
-# PATH
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin"
-
-# Set locale
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# In linux use xcape to set CAPS to CTRL if held
-if [[ -r /usr/bin/xcape ]]; then
-   sh /usr/bin/xcape -e '#67=Escape' -t 101
-fi
-
-# Set vim as the default editor
-VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
-
-# FileSearch
-function f() { find . -iname "*$1*" ${@:2} }
-function r() { grep "$1" ${@:2} -R . }
-
-#mkdir and cd
-function mkcd() { mkdir -p "$@" && cd "$_"; }
-
-# ALIASES
-# Use sublimetext for editing config files
-alias zshconfig="vim ~/.zshrc"
-alias g="git "
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+eval 
+            fuck () {
+                TF_PYTHONIOENCODING=$PYTHONIOENCODING;
+                export TF_ALIAS=fuck;
+                export TF_SHELL_ALIASES=$(alias);
+                export TF_HISTORY="$(fc -ln -10)";
+                export PYTHONIOENCODING=utf-8;
+                TF_CMD=$(
+                    thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
+                ) && eval $TF_CMD;
+                unset TF_HISTORY;
+                export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
+                test -n "$TF_CMD" && print -s $TF_CMD
+            }
+        
