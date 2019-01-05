@@ -101,7 +101,7 @@ for filename in $HOME/dotfiles/config/*; do
     fname=$(basename $filename)
     if [[ -e $HOME/.config/$fname ]]; then
        rm -rf $HOME/.config/$fname
-       ln -s $HOME/dotfiles/$fname $HOME/.config/$fname
+       ln -s $HOME/dotfiles/config/$fname $HOME/.config/$fname
     fi
 done
 echo
