@@ -95,10 +95,14 @@ fi
 printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
 printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
-if  [[ -e "$HOME/.config" ]]; then
-    echo "replacing config files"
-    rm -rf $HOME/.config
-fi
-ln -s $HOME/dotfiles/config $HOME/.config
+
+# move config files for applications that exist in the config folder
+for filename in $HOME/dotfiles/config/*; do
+    fname=$(basename $filename)
+    if [[ -e $HOME/.config/$fname ]]; then
+       rm -rf $HOME/.config/$fname
+       ln -s $HOME/dotfiles/$fname $HOME/.config/$fname
+    fi
+done
 echo
 echo "Please log out and log back in for default shell to be initialized."
