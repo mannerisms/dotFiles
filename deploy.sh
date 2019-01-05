@@ -97,12 +97,12 @@ printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 
 # move config files for applications that exist in the config folder
-for filename in ~/dotfiles/config/*; do
+for filename in $HOME/dotfiles/config/*; do
     fname=$(basename $filename)
-    if [[ -e ~/.config/$fname ]]; then
-       rm -rf ~/.config/$fname
+    if [[ -e $HOME/.config/$fname ]]; then
+       rm -rf $HOME/.config/$fname
     fi
-ln -s ~/dotfiles/config/$fname  ~/.config/$fname
+ln -s $HOME/dotfiles/config/$fname $HOME/.config/$fname
 done
 
 echo
