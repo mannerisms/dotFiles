@@ -10,11 +10,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# In linux use xcape to set CAPS to CTRL if held
-if [[ -r /usr/bin/xcape ]]; then
-   sh /usr/bin/xcape -e '#67=Escape' -t 101
-fi
-
 # Set vim as the default editor
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
@@ -37,9 +32,14 @@ function r() { grep "$1" ${@:2} -R . }
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # ALIASES
-# Use sublimetext for editing config files
+# Use vim for editing config files
 alias zshconfig="vim ~/.zshrc"
 alias envconfig="vim ~/.env.sh"
+
 alias g="git "
+alias gc="git commit -am "
+
+# open multiple files in vim as tabs
+alias vim="vim -p"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

@@ -12,6 +12,13 @@ ZSH_THEME="theunraveler"
 
 source $HOME/dotfiles/env/env.sh
 
+# Custom cd replaces cd function to cd and ls
+c() {
+    cd $1;
+    ls;
+}
+alias cd="c"
+
 eval 
             fuck () {
                 TF_PYTHONIOENCODING=$PYTHONIOENCODING;
