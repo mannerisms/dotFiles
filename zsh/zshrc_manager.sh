@@ -1,3 +1,4 @@
+#!/bin/zsh
 time_out () { perl -e 'alarm shift; exec @ARGV' "$@"; }
 
 # # Run tmux if exists
