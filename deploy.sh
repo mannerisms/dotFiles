@@ -100,9 +100,7 @@ printf "source-file $HOME/dotfiles/tmux/tmux.conf" > $HOME/.tmux.conf
 # move config files for applications that exist in the config folder
 for filename in $HOME/dotfiles/config/*; do
     fname=$(basename $filename)
-    if [[ -e $HOME/.config/$fname ]]; then
-       rm -rf $HOME/.config/$fname
-    fi
+    [ -e $HOME/.config/$fname ] && rm -rf $HOME/.config/$fname
 ln -s $HOME/dotfiles/config/$fname $HOME/.config/$fname
 done
 
