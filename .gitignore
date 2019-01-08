@@ -1,0 +1,10 @@
+vim/autoload/
+vim/plugged/
+*DS_Store
+
+# STANDARD PYTHON FILES
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+

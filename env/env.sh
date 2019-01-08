@@ -38,6 +38,7 @@ alias envconfig="vim ~/.env.sh"
 
 alias g="git "
 alias gc="git commit -am "
+alias gs="git status"
 
 # open multiple files in vim as tabs
 alias vim="vim -p"
