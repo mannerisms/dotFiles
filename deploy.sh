@@ -86,9 +86,9 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-	mv ~/.zshrc ~/.zshrc.old
-	mv ~/.tmux.conf ~/.tmux.conf.old
-	mv ~/.vimrc ~/.vimrc.old
+	mv $HOME/.zshrc $HOME/.zshrc.old
+	mv $HOME/.tmux.conf $HOME/.tmux.conf.old
+	mv $HOME/.vimrc $HOME/.vimrc.old
 else
 	echo -e "\nNot backing up old dotfiles."
 fi
@@ -101,7 +101,7 @@ printf "source-file $HOME/dotfiles/tmux/tmux.conf" > $HOME/.tmux.conf
 for filename in $HOME/dotfiles/config/*; do
     fname=$(basename $filename)
     [ -e $HOME/.config/$fname ] && rm -rf $HOME/.config/$fname
-ln -s $HOME/dotfiles/config/$fname $HOME/.config/
+ln -s $HOME/dotfiles/config/$fname $HOME/.config/$fname
 done
 
 echo
