@@ -101,7 +101,7 @@ printf "source-file $HOME/dotfiles/tmux/tmux.conf" > $HOME/.tmux.conf
 for filename in $HOME/dotfiles/config/*; do
     fname=$(basename $filename)
     [ -e $HOME/.config/$fname ] && rm -rf $HOME/.config/$fname
-ln -s $HOME/dotfiles/config/$fname $HOME/.config/$fname
+ln -s $HOME/dotfiles/config/$fname $HOME/.config/
 done
 
 echo
