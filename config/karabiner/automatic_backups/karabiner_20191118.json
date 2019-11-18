@@ -11,8 +11,7 @@
                     "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
-                    "basic.to_if_held_down_threshold_milliseconds": 500,
-                    "mouse_motion_to_scroll.speed": 100
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": [
                     {
@@ -42,36 +41,22 @@
                         ]
                     },
                     {
-                        "description": "Left ctrl + hjkl to arrow keys Vim",
+                        "description": "Make ctrl-j ctrl-k scroll up and down in preview",
                         "manipulators": [
                             {
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "key_code": "left_arrow"
+                                        "bundle_identifiers": [
+                                            "^com.apple.Preview"
+                                        ],
+                                        "type": "frontmost_application_if"
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                            "control"
                                         ]
                                     }
                                 },
@@ -81,16 +66,26 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Make ctrl-j ctrl-k scroll up and down in preview",
+                        "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com.apple.Preview"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                            "control"
                                         ]
                                     }
                                 },
@@ -100,22 +95,61 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Make ctrl-j ctrl-k scroll up and down in preview",
+                        "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com.apple.Preview"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "d",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                            "control"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_arrow"
+                                        "key_code": "page_down"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Make ctrl-j ctrl-k scroll up and down in preview",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com.apple.Preview"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_up"
                                     }
                                 ],
                                 "type": "basic"
@@ -238,14 +272,10 @@
                 }
             ],
             "name": "Default profile",
-            "parameters": {
-                "delay_milliseconds_before_open_device": 1000
-            },
             "selected": true,
             "simple_modifications": [],
             "virtual_hid_keyboard": {
-                "country_code": 0,
-                "mouse_key_xy_scale": 100
+                "country_code": 0
             }
         }
     ]
