@@ -24,6 +24,11 @@ if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
     export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 fi
 
+# switch caps and escape permanently
+if [[ -f /usr/bin/setxbmap ]]; then
+    setxkbmap -option caps:escape
+fi
+
 # FileSearch
 function f() { find . -iname "*$1*" ${@:2} }
 function r() { grep "$1" ${@:2} -r . }
