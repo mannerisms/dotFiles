@@ -108,9 +108,6 @@ vnoremap > >gv  " better indentation
 
 nnoremap <leader>i za
 
-" map Ctrl Enter to move to new line below
-inoremap <leader><Enter> <Esc>o
-
 " remove extra whitespace
 noremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
