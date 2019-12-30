@@ -96,8 +96,8 @@ set splitright
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 " set a map leader for more key combos
-let mapleader = " "
-let g:mapleader = " "
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>"
 
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
@@ -107,9 +107,6 @@ vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
 nnoremap <leader>i za
-
-" map Ctrl Enter to move to new line below
-inoremap <leader><Enter> <Esc>o
 
 " remove extra whitespace
 noremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
