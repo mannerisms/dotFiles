@@ -20,6 +20,8 @@ c() {
 }
 alias cd="c"
 
+export EDITOR=vim
+
 # Vim mode
 bindkey -v 
 
