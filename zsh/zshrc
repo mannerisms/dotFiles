@@ -9,9 +9,13 @@ ZSH_THEME="theunraveler"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git colored-man colorize virtualenv pip python brew osx zsh-syntax-highlighting)
-plugins=(vi-mode history-substring-search common-aliases compleat docker gitfast sublime sudo) 
+plugins=(history-substring-search common-aliases compleat docker gitfast sublime sudo) 
 
 source $HOME/dotfiles/env/env.sh
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # Custom cd replaces cd function to cd and ls
 c() {
@@ -21,9 +25,6 @@ c() {
 alias cd="c"
 
 export EDITOR=vim
-
-# Vim mode
-bindkey -v 
 
 # Plugin configuration
 eval 
