@@ -1,0 +1,14 @@
+# echo "Updating configuration"
+# (cd $HOME/dotfiles && git pull && git submodule update --init --recursive)
+
+# PATH
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin"
+
+# Set locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Set vim as the default editor
+VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR=vim
+
+source $HOME/dotfiles/zsh/zshrc
