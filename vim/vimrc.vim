@@ -30,7 +30,6 @@ Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'jnurmine/Zenburn'
 Plug 'flazz/vim-colorschemes'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dracula/vim', { 'as': 'dracula' }
 

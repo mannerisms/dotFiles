@@ -93,7 +93,7 @@ else
 	echo -e "\nNot backing up old dotfiles."
 fi
 
-printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > $HOME/.zshrc
+printf "source '$HOME/dotfiles/zsh/zshenv'" > $HOME/.zshenv
 printf "so $HOME/dotfiles/vim/vimrc.vim" > $HOME/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > $HOME/.tmux.conf
 
