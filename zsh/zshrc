@@ -1,18 +1,18 @@
-# Plugin configuration
-eval 
-            fuck () {
-                TF_PYTHONIOENCODING=$PYTHONIOENCODING;
-                export TF_ALIAS=fuck;
-                export TF_SHELL_ALIASES=$(alias);
-                export TF_HISTORY="$(fc -ln -10)";
-                export PYTHONIOENCODING=utf-8;
-                TF_CMD=$(
-                    thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
-                ) && eval $TF_CMD;
-                unset TF_HISTORY;
-                export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
-                test -n "$TF_CMD" && print -s $TF_CMD
-            }
+# Default PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# Homebrew to PATH
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Set vim as the default editor
+VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR=vim
+# Set locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Set vim as the default editor
+VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR=vim
+
 
 # switch caps and escape permanently
 if [[ -f /usr/bin/setxbmap ]]; then
@@ -39,17 +39,19 @@ alias vim="vim -p"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-#!/bin/zsh
-source $ZSH/oh-my-zsh.sh
+eval "$(starship init zsh)"
 
-
-# Set name of the theme to load.
-ZSH_THEME="theunraveler"
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(git colored-man colorize virtualenv pip python brew osx zsh-syntax-highlighting)
-plugins=(history-substring-search common-aliases compleat docker gitfast sublime sudo zsh-autosuggestions) 
+eval 
+            fuck () {
+                TF_PYTHONIOENCODING=$PYTHONIOENCODING;
+                export TF_ALIAS=fuck;
+                export TF_SHELL_ALIASES=$(alias);
+                export TF_HISTORY="$(fc -ln -10)";
+                export PYTHONIOENCODING=utf-8;
+                TF_CMD=$(
+                    thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
+                ) && eval $TF_CMD;
+                unset TF_HISTORY;
+                export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
+                test -n "$TF_CMD" && print -s $TF_CMD
+            }

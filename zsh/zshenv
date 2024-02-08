@@ -1,6 +1,3 @@
-# echo "Updating configuration"
-# (cd $HOME/dotfiles && git pull && git submodule update --init --recursive)
-
 # PATH
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin"
 

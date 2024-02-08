@@ -1,108 +1,93 @@
-#!/bin/sh
-prompt_install() {
-	echo -n "$1 is not installed. Would you like to install it? (y/n) " >&2
-	old_stty_cfg=$(stty -g)
-	stty raw -echo
-	answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-	stty $old_stty_cfg && echo
-	if echo "$answer" | grep -iq "^y" ;then
-		# This could def use community support
-		if [ -x "$(command -v apt-get)" ]; then
-			sudo apt-get install $1 -y
+#!/usr/bin/env bash
 
-		elif [ -x "$(command -v brew)" ]; then
-			brew install $1
+prompt_yes_no() {
+    while true; do
+        echo -n "$1 (y/n) "
+        read -r answer </dev/tty
+        case "$answer" in
+            [Yy]* ) return 0;;
+            [Nn]* ) return 1;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+}
 
-		elif [ -x "$(command -v pkg)" ]; then
-			sudo pkg install $1
-
-		elif [ -x "$(command -v pacman)" ]; then
-			sudo pacman -S $1
-
-		else
-			echo "I'm not sure what your package manager is! Please install $1 on your own and run this deploy script again. Tests for package managers are in the deploy script you just ran starting at line 13. Feel free to make a pull request at https://github.com/parth/dotfiles :)"
-		fi
-	fi
+install_package() {
+    echo "$1 is not installed. Would you like to install it?"
+    if prompt_yes_no; then
+        if command -v apt-get >/dev/null; then
+            sudo apt-get install "$1" -y
+        elif command -v brew >/dev/null; then
+            brew install "$1"
+        elif command -v pkg >/dev/null; then
+            sudo pkg install "$1"
+        elif command -v pacman >/dev/null; then
+            sudo pacman -S "$1"
+        else
+            echo "Package manager is unknown. Please install $1 manually."
+        fi
+    fi
 }
 
 check_for_software() {
-	echo "Checking to see if $1 is installed"
-	if ! [ -x "$(command -v $1)" ]; then
-		prompt_install $1
-	else
-		echo "$1 is installed."
-	fi
+    echo "Checking to see if $1 is installed..."
+    if ! command -v "$1" >/dev/null; then
+        install_package "$1"
+    else
+        echo "$1 is installed."
+    fi
 }
 
 check_default_shell() {
-	if [ -z "${SHELL##*zsh*}" ] ;then
-			echo "Default shell is zsh."
-	else
-		echo -n "Default shell is not zsh. Do you want to chsh -s \$(which zsh)? (y/n)"
-		old_stty_cfg=$(stty -g)
-		stty raw -echo
-		answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-		stty $old_stty_cfg && echo
-		if echo "$answer" | grep -iq "^y" ;then
-			chsh -s $(which zsh)
-		else
-			echo "Warning: Your configuration won't work properly. If you exec zsh, it'll exec tmux which will exec your default shell which isn't zsh."
-		fi
-	fi
+    if [[ "$SHELL" != */zsh ]]; then
+        echo "Default shell is not zsh. Do you want to change it to zsh?"
+        if prompt_yes_no; then
+            chsh -s "$(which zsh)"
+        else
+            echo "Warning: Configuration may not work properly without zsh."
+        fi
+    else
+        echo "Default shell is zsh."
+    fi
 }
 
-echo "We're going to do the following:"
-echo "1. Check to make sure you have zsh, vim, and tmux installed"
-echo "2. We'll help you install them if you don't"
-echo "3. We're going to check to see if your default shell is zsh"
-echo "4. We'll try to change it if it's not"
+backup_and_link() {
+    local src="$1" dest="$2"
+    if prompt_yes_no "Would you like to backup $dest?"; then
+        if [[ -e "$dest" ]]; then
+            echo "Backing up $dest to ${dest}.old"
+            mv "$dest" "${dest}.old"
+        fi
+    fi
+    echo "Linking $src to $dest"
+    ln -sf "$src" "$dest"
+}
 
-echo "Let's get started? (y/n)"
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y" ;then
-	echo
-else
-	echo "Quitting, nothing was changed."
-	exit 0
-fi
+main() {
+    if ! prompt_yes_no "Let's get started?"; then
+        echo "Quitting, nothing was changed."
+        exit 0
+    fi
 
+    check_for_software zsh
+    check_for_software vim
+    check_for_software tmux
 
-check_for_software zsh
-echo
-check_for_software vim
-echo
-check_for_software tmux
-echo
+    check_default_shell
 
-check_default_shell
+    backup_and_link "$HOME/dotfiles/zsh/zshenv" "$HOME/.zshenv"
+    backup_and_link "$HOME/dotfiles/vim/vimrc.vim" "$HOME/.vimrc"
+    backup_and_link "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.tmux.conf"
 
-echo
-echo -n "Would you like to backup your current dotfiles? (y/n) "
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y" ;then
-	mv $HOME/.zshrc $HOME/.zshrc.old
-	mv $HOME/.tmux.conf $HOME/.tmux.conf.old
-	mv $HOME/.vimrc $HOME/.vimrc.old
-else
-	echo -e "\nNot backing up old dotfiles."
-fi
+    # Looping through dotfiles/config for linking
+    for configfile in "$HOME/dotfiles/config/"*; do
+        fname=$(basename "$configfile")
+        dest="$HOME/.config/$fname"
+        echo "Processing $fname for linking..."
+        backup_and_link "$configfile" "$dest"
+    done
 
-printf "source '$HOME/dotfiles/zsh/zshenv'" > $HOME/.zshenv
-printf "so $HOME/dotfiles/vim/vimrc.vim" > $HOME/.vimrc
-printf "source-file $HOME/dotfiles/tmux/tmux.conf" > $HOME/.tmux.conf
+    echo "Please log out and log back in for the default shell to be initialized."
+}
 
-# move config files for applications that exist in the config folder
-for filename in $HOME/dotfiles/config/*; do
-    fname=$(basename $filename)
-    [ -e $HOME/.config/$fname ] && rm -rf $HOME/.config/$fname
-ln -s $HOME/dotfiles/config/$fname $HOME/.config/$fname
-done
-
-echo
-echo "Please log out and log back in for default shell to be initialized."
+main "$@"
