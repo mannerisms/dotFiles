@@ -1,3 +1,7 @@
+import = [
+    "~/.config/alacritty/themes/themes/nordic.toml"
+]
+
 [font]
 size = 12
 
