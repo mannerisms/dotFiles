@@ -267,7 +267,7 @@ endif
 " Language Specific
 
 " Load tabs
-so ~/dotfiles/vim/tabs.vim
+so ~/.vim/tabs.vim
 
 "define BadWhitespace before using in a match
 highlight BadWhitespace ctermbg=red guibg=darkred

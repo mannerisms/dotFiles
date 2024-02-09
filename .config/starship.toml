@@ -55,7 +55,10 @@ format = "[$duration]($style)"
 style = "yellow"
 
 [memory_usage]
-symbol = " "
+disabled = false
+threshold = -1
+symbol = ' '
+style = 'bold dimmed green'
 
 [time]
 disabled = false
