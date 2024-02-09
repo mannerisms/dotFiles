@@ -1,4 +1,5 @@
-apt-get update && apt-get upgrade
+#!/bin/bash
+
 apt-get install the_silver_searcher
 apt-get install tree
 apt-get install yt-dlp
@@ -11,7 +12,4 @@ apt-get install alacritty
 apt-get install zsh
 apt-get install trash
 apt-get install zsh-syntax-highlighting
-
-# install starship
-curl -sS https://starship.rs/install.sh | sh
-
+apt-get install zsh-autosuggestions
