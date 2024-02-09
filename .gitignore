@@ -30,3 +30,7 @@ __pycache__/
 *$py.class
 
 *automatic_backups*
+
+# vim files
+.vim/autoload
+.vim/plugged

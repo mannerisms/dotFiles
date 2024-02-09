@@ -1,6 +1,6 @@
 [[ -f $STARTUPDIR/generate_container_user ]] && source $STARTUPDIR/generate_container_user
-[[ -f ~/dotfiles/zsh/aliases.zsh ]] && source ~/dotfiles/zsh/aliases.zsh
-[[ -f ~/dotfiles/zsh/functions.zsh ]] && source ~/dotfiles/zsh/functions.zsh
+[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
+[[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
 
 # Starship config
 export STARSHIP_CONFIG=~/.config/starship/starship.toml 
