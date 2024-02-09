@@ -1,7 +1,6 @@
-backup/
 \.git
 gitignore
-scripts/
+scripts
 README
 .DS_Store
-fonts/
+fonts
