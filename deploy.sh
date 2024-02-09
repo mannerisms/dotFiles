@@ -18,8 +18,7 @@ if [ "$(uname)" == "Darwin" ]; then
     # install mac dependencies
     brew update && brew upgrade
     bash scripts/install/install-deps-macos.sh
-fi
-
+    
 elif [ "$(uname)" == "Linux" ]; then
     FONT_DIR="$HOME/.fonts"
     # Do something under GNU/Linux platform
