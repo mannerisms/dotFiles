@@ -1,13 +1,36 @@
-# ~/.config/starship.toml
+# ~/.config/starship/starship.toml
 
 add_newline = false
 command_timeout = 1000
-format = """$os$username$hostname$kubernetes$directory$git_branch$git_status"""
+format = """\
+$line_break\
+$os\
+$username\
+$hostname\
+$kubernetes\
+$directory\
+$git_branch\ 
+$git_status\
+$git_metrics\
+$fill\
+$cmd_duration\
+$jobs\
+$time\
+$line_break\
+$character"""
 
-# Drop ugly default prompt characters
+[time]
+disabled = false
+style = "bold white"
+format = "[$time]($style)"
+
+[fill]
+symbol = " "
+
 [character]
-success_symbol = ''
-error_symbol = ''
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](green)"
 
 # ---
 
@@ -22,6 +45,10 @@ Ubuntu = ''
 Macos = '󰀵'
 
 # ---
+
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow"
 
 # Shows the username
 [username]

@@ -9,8 +9,8 @@ alias zshconfig="vim $HOME/dotfiles/zsh/zshrc"
 alias s='source ~/.zshrc'
 
 # set list commands
-alias la='ls -la'
-alias ls='ls -l'
+alias la='ls -lGa'
+alias ls='ls -lG'
 
 # Python3 as default python
 alias python='python3'
