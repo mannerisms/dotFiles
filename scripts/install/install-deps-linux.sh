@@ -11,3 +11,7 @@ apt-get install alacritty
 apt-get install zsh
 apt-get install trash
 apt-get install zsh-syntax-highlighting
+
+# install starship
+curl -sS https://starship.rs/install.sh | sh
+
