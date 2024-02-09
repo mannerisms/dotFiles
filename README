@@ -1,37 +1,6 @@
-# SETUP ON LINUX #
-$ sudo apt-get install python-pip python-dev build-essential 
-$ sudo pip install --upgrade pip 
-$ sudo pip install --upgrade virtualenv 
+## New install
+Run appropriate install script in scripts/install directory
 
-# INSTALL OH-MY-ZSH
-$ sudo apt-get install zsh
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+run stow . inside of dotfiles directory
 
-# INSTALL VIM
-$ sudo apt-get install vim
 
-# RUN SYSTEM SETUP
-$ ./system_setup.sh
-
-# NOTABLE PROGRAMS TO CONSIDER INSTALLING
-sudo apt-get install ranger # terminal file browser
-sudo apt-get install zathura # terminal document viewer
-
-################################################################################
-
-# SETUP ON OSX #
-
-# INSTALL HOMEBREW #
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# INSTALL PIP #
-$ sudo easy_install pip
-$ pip install virtualenv
-$ pip install virtualenvwrapper
-
-# INSTALL OH-MY-ZSH #
-$ sudo apt-get install zsh
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# RUN SYSTEM SETUP
-$ ./system_setup.sh 
