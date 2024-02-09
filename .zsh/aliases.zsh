@@ -31,6 +31,8 @@ alias trim="awk '{\$1=\$1;print}'"
 alias notes="cd $NOTES_DIR && nvim 00\ HOME.md"
 
 # GIT ALIASES -----------------------------------------------------------------
+
+alias gs='git status'
 alias gc='git commit -am'
 alias gco='git checkout'
 alias ga='git add'
