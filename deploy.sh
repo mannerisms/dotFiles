@@ -18,7 +18,7 @@ if [ "$(uname)" == "Darwin" ]; then
     # install mac dependencies
     brew update && brew upgrade
     bash scripts/install/install-deps-macos.sh
-    
+
 elif [ "$(uname)" == "Linux" ]; then
     FONT_DIR="$HOME/.fonts"
     # Do something under GNU/Linux platform
@@ -28,7 +28,7 @@ elif [ "$(uname)" == "Linux" ]; then
     sudo bash scripts/install/install-deps-linux.sh
 
     # install starship
-    curl -sS https://starship.rs/install.sh | sh
+    sudo curl -sS https://starship.rs/install.sh | sh
 fi
 
 
