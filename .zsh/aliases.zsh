@@ -4,9 +4,9 @@
 # Use vim for editing config files
 alias zshconfig="vim $HOME/dotfiles/zsh/zshrc"
 
-alias g="git "
-alias gc="git commit -am "
-# alias gs="git status"
+# set list commands
+alias la='ls -la'
+alias ls='ls -l'
 
 # open multiple files in vim as tabs
 alias vim="vim -p"
@@ -26,14 +26,12 @@ alias ta='tmux attach -t'
 
 alias c='clear'
 alias s='source ~/.zshrc'
-alias h=heroku
-alias jj='pbpaste | jsonpp | pbcopy'
 alias rm=trash
 alias trim="awk '{\$1=\$1;print}'"
 alias notes="cd $NOTES_DIR && nvim 00\ HOME.md"
 
 # GIT ALIASES -----------------------------------------------------------------
-alias gc='git commit'
+alias gc='git commit -am "'
 alias gco='git checkout'
 alias ga='git add'
 alias gb='git branch'
