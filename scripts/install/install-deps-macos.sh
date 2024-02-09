@@ -6,6 +6,7 @@ brew install logseq
 brew install fzf
 brew install zsh-syntax-highlighting
 brew install arc
+brew install bat
 # brew install skhd
 brew install istat-menus
 brew install docker
@@ -18,6 +19,7 @@ brew install tree
 brew install yt-dlp
 brew install jsonpp
 brew install jq
+brew install zsh-syntax-highlighting
 
 # brew tap jakehilborn/jakehilborn
 # brew install displayplacer

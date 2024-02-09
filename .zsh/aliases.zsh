@@ -28,6 +28,7 @@ alias hcat='highlight -O ansi'
 alias c='clear'
 alias rm=trash
 alias trim="awk '{\$1=\$1;print}'"
+alias cat='bat'
 
 # GIT ALIASES -----------------------------------------------------------------
 alias gs='git status'
