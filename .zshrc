@@ -23,7 +23,7 @@ function r() { grep "$1" ${@:2} -r . }
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # ALIASES
-source $HOME/dotfiles/zsh/aliases.zsh
+source $HOME/.zsh/aliases.zsh
 
 # open multiple files in vim as tabs
 alias vim="vim -p"
