@@ -1,3 +1,6 @@
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Default PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
@@ -6,13 +9,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 # Set vim as the default editor
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR=vim
-# Set locale
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# Set vim as the default editor
-VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR=vim
-
 
 # switch caps and escape permanently
 if [[ -f /usr/bin/setxbmap ]]; then
@@ -27,19 +23,10 @@ function r() { grep "$1" ${@:2} -r . }
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # ALIASES
-# Use vim for editing config files
-alias zshconfig="vim ~/.zshrc"
-
-alias g="git "
-alias gc="git commit -am "
-alias gs="git status"
+source $HOME/dotfiles/zsh/aliases.zsh
 
 # open multiple files in vim as tabs
 alias vim="vim -p"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-eval "$(starship init zsh)"
 
 eval 
             fuck () {
@@ -55,3 +42,9 @@ eval
                 export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
                 test -n "$TF_CMD" && print -s $TF_CMD
             }
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+
+eval "$(starship init zsh)"
