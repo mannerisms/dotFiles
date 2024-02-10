@@ -45,6 +45,8 @@ alias chx='chmod +x'
 # check if current shell is zsh or bash
 if [ -n "$ZSH_VERSION" ]; then
   alias s="source ~/.zshrc"
+  alias cat='bat'
 elif [ -n "$BASH_VERSION" ]; then
   alias s="source ~/.bashrc"
+  alias cat='batcat'
 fi
