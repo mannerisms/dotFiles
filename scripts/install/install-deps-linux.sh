@@ -15,6 +15,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     apt-get install zsh-syntax-highlighting
     apt-get install zsh-autosuggestions
     apt-get install zsh-you-should-use
+    sudo chsh -s $(which zsh)
 else
     echo "Skipping zsh installation"
 fi
