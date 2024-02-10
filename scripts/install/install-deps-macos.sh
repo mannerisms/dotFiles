@@ -1,6 +1,15 @@
 #!/bin/bash
 
-brew update && brew upgrade
+brew update 
+
+# ask if brew should be upgraded
+read -p "Do you want to upgrade existing brew packages? (y/n) " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Upgrading brew"
+    brew upgrade
+else
+    echo "Skipping brew upgrade"
+fi
 
 brew install stow
 brew install logseq
