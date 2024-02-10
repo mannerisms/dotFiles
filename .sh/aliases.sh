@@ -13,8 +13,8 @@ alias gst='git status'
 alias ga='git add'
 alias gaa='git add --all'
 alias gc='git commit -am'
-alias gp="git push -u 2>&1 | tee >(cat) | grep \"pull/new\" | awk '{print \$2}' | xargs open"
-alias gpf="git push -uf 2>&1 | tee >(cat) | grep \"pull/new\" | awk '{print \$2}' | xargs open"
+alias gp="git push -u 2>&1 | tee >(cat) | sed 's/\x1b\[[0-9;]*m//g' | grep \"pull/new\" | awk '{print \$2}' | xargs open"
+alias gpf="git push -uf 2>&1 | tee >(cat) | sed 's/\x1b\[[0-9;]*m//g' | grep \"pull/new\" | awk '{print \$2}' | xargs open"
 
 # set list commands
 alias la='ls -lGa'
