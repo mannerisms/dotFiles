@@ -58,6 +58,18 @@ elif [ "$(uname)" == "Linux" ]; then
     fi
 fi  
 
+# check if stow is installed
+if [ -f /usr/local/bin/stow ]; then
+    echo "Stow is already installed"
+else
+    echo "Installing stow"
+    if [ "$(uname)" == "Darwin" ]; then
+        brew install stow
+    elif [ "$(uname)" == "Linux" ]; then
+        sudo apt-get install stow
+    fi
+fi
+
 # Call the backup_files function
 backup_files
 
