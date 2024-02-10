@@ -58,11 +58,12 @@ fi
 backup_files
 
 # stow dotfiles
-stow ~/dotfiles
+cd ~/dotfiles
+stow .
 
 # copy fonts from dotfiles to font directory
 echo "The fonts will be copied to $FONT_DIR/"
-cp ~/dotfiles/fonts/* $FONT_DIR/
+cp fonts/* $FONT_DIR/
 
 # load new fonts
 fc-cache -fv
