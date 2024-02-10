@@ -49,16 +49,14 @@ elif [ "$(uname)" == "Linux" ]; then
     else
         echo "Skipping dependencies installation"
     fi
+    # check if starship is installed
+    if [ -f /usr/local/bin/starship ]; then
+        echo "Starship is already installed"
+    else
+        echo "Installing starship"
+        sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+    fi
 fi  
-
-# install starship
-# check if starship is installed
-if [ -f /usr/local/bin/starship ]; then
-    echo "Starship is already installed"
-else
-    echo "Installing starship"
-    sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-fi
 
 # Call the backup_files function
 backup_files
