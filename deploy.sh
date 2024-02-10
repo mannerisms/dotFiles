@@ -31,6 +31,12 @@ if [ "$(uname)" == "Darwin" ]; then
 
 elif [ "$(uname)" == "Linux" ]; then
     FONT_DIR="$HOME/.fonts"
+    if [ -d "$FONT_DIR" ]; then
+        echo "Font directory exists"
+    else
+        echo "Font directory does not exist"
+        mkdir -p $FONT_DIR
+    fi
     # Do something under GNU/Linux platform
     echo "Linux detected"
     # install linux dependencies
