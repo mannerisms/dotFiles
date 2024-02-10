@@ -1,20 +1,17 @@
 # ~/.config/starship/starship.toml
 
-add_newline = false
+add_newline = true
 command_timeout = 1000
 format = """\
-$line_break\
 $os\
 $username\
 $hostname\
-$kubernetes\
 $directory\
 $git_branch\ 
 $git_status\
 $git_metrics\
+$python\
 $fill\
-$cmd_duration\
-$jobs\
 $time\
 $line_break\
 $character"""
@@ -74,6 +71,10 @@ read_only_style = '197'
 read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
 
+# Show Python
+[python]
+disabled = false
+
 # Shows current git branch
 [git_branch]
 symbol = ' '
@@ -98,11 +99,6 @@ staged = '[++\($count\)](green)'
 renamed = '襁 '
 deleted = ' '
 
-# Shows kubernetes context and namespace
-[kubernetes]
-format = 'via [󱃾 $context\($namespace\)](bold purple) '
-disabled = false
-
 # ---
 
 [vagrant]
@@ -114,8 +110,6 @@ disabled = true
 [helm]
 disabled = true
 
-[python]
-disabled = true
 
 [nodejs]
 disabled = true
