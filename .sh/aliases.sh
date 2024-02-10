@@ -16,6 +16,7 @@ alias gc='git commit -am'
 alias gp="git push"
 alias gpd="git push --dry-run"
 alias gpf="git push --force"
+alias gl="git pull"
 
 # set list commands
 alias la='ls -lGa'
