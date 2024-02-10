@@ -61,11 +61,8 @@ backup_files
 stow ~/dotfiles
 
 # copy fonts from dotfiles to font directory
-echo "The fonts will be copied to $FONT_DIR"
-cp ~/dotfiles/fonts/* $FONT_DIR
+echo "The fonts will be copied to $FONT_DIR/"
+cp ~/dotfiles/fonts/* $FONT_DIR/
 
 # load new fonts
 fc-cache -fv
-
-# set zsh as default shell
-chsh -s $(which zsh)
