@@ -6,6 +6,7 @@ alias vim="vim -p"
 # Use vim for editing config files
 alias dotconfig="vim $HOME/dotfiles/"
 alias zshconfig="vim $HOME/dotfiles/zsh/zshrc"
+
 alias s='source ~/.zshrc'
 
 # Git aliases
@@ -40,3 +41,10 @@ alias rm=trash
 alias trim="awk '{\$1=\$1;print}'"
 alias cat='bat'
 alias chx='chmod +x'
+
+# check if current shell is zsh or bash
+if [ -n "$ZSH_VERSION" ]; then
+  alias s="source ~/.zshrc"
+elif [ -n "$BASH_VERSION" ]; then
+  alias s="source ~/.bashrc"
+fi
