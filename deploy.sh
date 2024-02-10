@@ -10,6 +10,8 @@ backup_files() {
     fi
 }
 
+FONT_DIR=""
+
 # check if operating system is linux or macos
 if [ "$(uname)" == "Darwin" ]; then
     FONT_DIR="$HOME/Library/Fonts"
@@ -40,12 +42,17 @@ elif [ "$(uname)" == "Linux" ]; then
         sudo bash scripts/install/install-deps-linux.sh
     else
         echo "Skipping dependencies installation"
-    fi    
+    fi
+fi  
 
-    # install starship
-    sudo curl -sS https://starship.rs/install.sh | sh
+# install starship
+# check if starship is installed
+if [ -f /usr/local/bin/starship ]; then
+    echo "Starship is already installed"
+else
+    echo "Installing starship"
+    sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 fi
-
 
 # Call the backup_files function
 backup_files
@@ -54,6 +61,7 @@ backup_files
 stow ~/dotfiles
 
 # copy fonts from dotfiles to font directory
+echo "The fonts will be copied to $FONT_DIR"
 cp ~/dotfiles/fonts/* $FONT_DIR
 
 # load new fonts
