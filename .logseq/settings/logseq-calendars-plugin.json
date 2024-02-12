@@ -1,0 +1,26 @@
+{
+  "template": "{Start} - {End}: {Title}",
+  "useJSON": false,
+  "IndentCommonBlock": false,
+  "templateLine2": "{Description}",
+  "timeFormat": [
+    "12 hour time",
+    "24 hour time"
+  ],
+  "calendar1Name": "Family",
+  "calendar1URL": "https://calendar.google.com/calendar/ical/mannerisms%40gmail.com/private-f3531e9ee2b4d4437315c1de35f46924/basic.ics",
+  "calendar2Name": "Personal",
+  "calendar2URL": "https://calendar.google.com/calendar/u/0?cid=bWFubmVyaXNtc0BnbWFpbC5jb20",
+  "calendar3Name": "",
+  "calendar3URL": "",
+  "calendar4Name": "",
+  "calendar4URL": "",
+  "calendar5Name": "",
+  "calendar5URL": "",
+  "disabled": false,
+  "accountsDetails": {
+    "Calendar 1": "https://calendar.google.com/calendar/ical/...",
+    "Personal": "https://calendar.google.com/calendar/u/0?cid=bWFubmVyaXNtc0BnbWFpbC5jb20",
+    "Family": "https://calendar.google.com/calendar/ical/mannerisms%40gmail.com/private-f3531e9ee2b4d4437315c1de35f46924/basic.ics"
+  }
+}
