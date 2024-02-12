@@ -1,7 +1,8 @@
 # ALIASES ---------------------------------------------------------------------
 
+# Make neovim the defualt vim editor
 # open multiple files in vim as tabs
-alias vim="vim -p"
+alias vim="nvim -p"
 
 # Use vim for editing config files
 alias dotconfig="vim $HOME/dotfiles/"
@@ -32,6 +33,7 @@ alias dc=docker-compose
 alias dkill="pgrep \"Docker\" | xargs kill -9"
 
 # tmux aliases
+alias tmb='tmux new-session -A -s base'
 alias ta='tmux attach -t'
 
 # Misc aliases
