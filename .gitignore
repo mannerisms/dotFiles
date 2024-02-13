@@ -34,3 +34,6 @@ __pycache__/
 # vim files
 .vim/autoload
 .vim/plugged
+
+# Logseq files with personal information
+.logseq/settings/logseq-plugin-gpt3-openai.json
