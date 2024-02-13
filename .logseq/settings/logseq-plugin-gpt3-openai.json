@@ -1,5 +1,4 @@
 {
-  "openAIKey": "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",
   "openAICompletionEngine": "gpt-4",
   "chatCompletionEndpoint": "http://api.openai.com/v1/",
   "chatPrompt": "Do not refer to yourself in your answers. Do not say as an AI language model...",
