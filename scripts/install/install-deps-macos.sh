@@ -11,22 +11,22 @@ else
     echo "Skipping brew upgrade"
 fi
 
-brew install stow
-brew install logseq
-brew install fzf
-brew install arc
+brew install alacritty
+brew install alfred
+brew install alt-tab
 brew install bat
-brew install istat-menus
 brew install docker
 brew install docker-compose
-brew install alfred
+brew install fzf
+brew install istat-menus
+brew install logseq
+brew install nvim
+brew install stow
+brew install tmux
 brew install trash
 brew install tree
-brew install yt-dlp
 brew install whatsapp
-brew install alt-tab
-brew install alacritty
-brew install tmux
+brew install yt-dlp
+brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 brew install zsh-you-should-use
-brew install zsh-autosuggestions

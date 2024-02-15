@@ -2,5 +2,3 @@
 Run appropriate install script in scripts/install directory
 
 run stow . inside of dotfiles directory
-
-
