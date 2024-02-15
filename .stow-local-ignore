@@ -6,4 +6,4 @@ README
 fonts
 deploy.sh
 fonts/
-*.bak
+\.bak$
