@@ -18,7 +18,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
+                        "description": "Change caps_lock to hyper key if held down, to escape if pressed once.",
                         "manipulators": [
                             {
                                 "from": {
@@ -31,7 +31,12 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "left_shift",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_option",
+                                            "left_command"
+                                        ]
                                     }
                                 ],
                                 "to_if_alone": [
@@ -44,7 +49,7 @@
                         ]
                     },
                     {
-                        "description": "Left ctrl + hjkl to arrow keys Vim",
+                        "description": "Hyper + HJKL to arrow keys like Vim",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -59,7 +64,10 @@
                                     "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option",
+                                            "left_command"
                                         ]
                                     }
                                 },
@@ -83,7 +91,10 @@
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option",
+                                            "left_command"
                                         ]
                                     }
                                 },
@@ -107,7 +118,10 @@
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option",
+                                            "left_command"
                                         ]
                                     }
                                 },
@@ -131,7 +145,10 @@
                                     "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option",
+                                            "left_command"
                                         ]
                                     }
                                 },
