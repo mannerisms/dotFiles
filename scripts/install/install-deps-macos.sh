@@ -12,20 +12,14 @@ else
 fi
 
 brew install alacritty
-brew install alfred
-brew install alt-tab
 brew install bat
-brew install docker
-brew install docker-compose
 brew install fzf
 brew install istat-menus
 brew install logseq
-brew install nvim
 brew install stow
 brew install tmux
 brew install trash
 brew install tree
-brew install whatsapp
 brew install yt-dlp
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting

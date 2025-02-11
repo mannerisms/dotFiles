@@ -2,7 +2,7 @@
 
 # Make neovim the defualt vim editor
 # open multiple files in vim as tabs
-alias vim="nvim -p"
+alias vim="vim -p"
 
 # Use vim for editing config files
 alias dotconfig="vim $HOME/dotfiles/"
@@ -19,13 +19,12 @@ alias gp="git push"
 alias gpd="git push --dry-run"
 alias gpf="git push --force"
 alias gl="git pull"
+alias gd='git diff'
+alias gco='git checkout'
 
 # set list commands
 alias la='ls -lGa'
 alias ls='ls -lG'
-
-# Python3 as default python
-alias python='python3'
 
 # Docker aliases
 alias d=docker

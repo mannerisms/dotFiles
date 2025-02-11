@@ -59,14 +59,12 @@ elif [ "$(uname)" == "Linux" ]; then
 fi
 
 # check if stow is installed
-if [ -f /usr/local/bin/stow ]; then
-	echo "Stow is already installed"
-else
+if ! command -v stow >/dev/null 2>&1; then
 	echo "Installing stow"
 	if [ "$(uname)" == "Darwin" ]; then
 		brew install stow
 	elif [ "$(uname)" == "Linux" ]; then
-		sudo apt-get install stow
+		sudo apt-get install -y stow
 	fi
 fi
 
